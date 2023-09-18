@@ -1,0 +1,65 @@
+---
+title: "p8105_hw1_qc2336"
+author: Qiran Chen
+output: html_document
+date: "2023-09-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+```{r}
+library("moderndive")
+data("early_january_weather")
+```
+
+```{r}
+summary(early_january_weather)
+
+
+nrow(early_january_weather)
+ncol(early_january_weather)
+```
+
+> The data set consists 15 variables and 358 observations. It describes the important characteristics reflecting the weather in January,2013. The year,month,day,hour variables details the time when those weather data is collected and a variable that combines the four.The mean temperature is 39.58 degree. The other important variable are humidity, wind direction, speed, gust, precipitation, pressure and visibility.
+
+```{r}
+library(ggplot2)
+ggplot(early_january_weather, aes(x=time_hour, y=temp, color=humid))+geom_point()
+
+ggsave("p8105_hw1.pdf")
+```
+## Problem 2
+```{r}
+library(tidyverse)
+```
+
+```{r}
+x<-rnorm(n=10,mean=0,sd=1)
+l<-x>0
+c<-c("1","2","3","4","5","6","7","8","9","10")
+f<-factor(c(1,0,1,1,1,1,0,2,1,2),levels=c(0,1,2))
+```
+
+```{r}
+df<-data.frame(sample=x,Logical_Vector=l,Character_Vector=c,Factor_vector=f)
+df
+
+mean(pull(df,sample))
+mean(pull(df,Logical_Vector))
+mean(pull(df,Character_Vector))
+mean(pull(df,Factor_vector))
+```
+>The sample size for normal distribution and the logical vector but not for character and factor.
+
+```{r}
+mean(as.numeric(l))
+mean(as.numeric(c))
+mean(as.numeric(f))
+
+```
+
+>The vectors now can all be calculated as numbers. 
