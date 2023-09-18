@@ -29,6 +29,8 @@ ncol(early_january_weather)
 ```{r}
 library(ggplot2)
 ggplot(early_january_weather, aes(x=time_hour, y=temp, color=humid))+geom_point()
+
+ggsave("p8105_hw1.pdf")
 ```
 ## Problem 2
 ```{r}
