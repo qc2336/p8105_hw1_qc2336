@@ -17,11 +17,7 @@ data("early_january_weather")
 ```
 
 ```{r}
-summary(early_january_weather)
-
-
-nrow(early_january_weather)
-ncol(early_january_weather)
+skimr::skim(early_january_weather)
 ```
 
 > The data set consists 15 variables and 358 observations. It describes the important characteristics reflecting the weather in January,2013. The year,month,day,hour variables details the time when those weather data is collected and a variable that combines the four.The mean temperature is 39.58 degree. The other important variable are humidity, wind direction, speed, gust, precipitation, pressure and visibility.
