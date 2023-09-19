@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_qc2336"
 author: Qiran Chen
-output: html_document
+output: github_document
 date: "2023-09-17"
 ---
 
@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Problem 1
 
 ```{r}
+library(tidyverse)
 library("moderndive")
 data("early_january_weather")
 ```
@@ -33,29 +34,28 @@ ggsave("p8105_hw1.pdf")
 library(tidyverse)
 ```
 
+
 ```{r}
-x<-rnorm(n=10,mean=0,sd=1)
-l<-x>0
-c<-c("1","2","3","4","5","6","7","8","9","10")
-f<-factor(c(1,0,1,1,1,1,0,2,1,2),levels=c(0,1,2))
+df<-tibble(sample=rnorm(n=10,mean=0,sd=1),
+               Logical_vector=sample>0,
+               Character_vector=c("1","2","3","4","5","6","7","8","9","10"),
+               Factor_vector=factor(c(1,0,1,1,1,1,0,2,1,2),levels=c(0,1,2)))
+df
+
 ```
 
 ```{r}
-df<-data.frame(sample=x,Logical_Vector=l,Character_Vector=c,Factor_vector=f)
-df
-
 mean(pull(df,sample))
-mean(pull(df,Logical_Vector))
-mean(pull(df,Character_Vector))
+mean(pull(df,Logical_vector))
+mean(pull(df,Character_vector))
 mean(pull(df,Factor_vector))
 ```
 >The sample size for normal distribution and the logical vector but not for character and factor.
 
 ```{r}
-mean(as.numeric(l))
-mean(as.numeric(c))
-mean(as.numeric(f))
-
+mean(as.numeric(df$Logical_vector))
+mean(as.numeric(df$Character_vector))
+mean(as.numeric(df$Factor_vector))
 ```
 
 >The vectors now can all be calculated as numbers. 
