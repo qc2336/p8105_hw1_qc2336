@@ -30,6 +30,9 @@ ggplot(early_january_weather, aes(x=time_hour, y=temp, color=humid))+geom_point(
 
 ggsave("p8105_hw1.pdf")
 ```
+>The humdity looks higher closer to Jan 14, and it is lower in early janunary.In general humidty is low when the temperature is higher and higher when the temperature is low. Except for the extreme high humdity before Jan 14.
+
+
 ## Problem 2
 
 
